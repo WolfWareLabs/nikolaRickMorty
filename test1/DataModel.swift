@@ -22,7 +22,7 @@ struct CharacterModel: Codable{
     var origin: CharacterOrigin
     var location: CharacterLocation
     var image: String
-    var episodes: [String]
+    var episode: [String]
     var url: String
     var created: String
 }

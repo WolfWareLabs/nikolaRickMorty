@@ -19,6 +19,8 @@
 		C6A6778D280D7BE300AD7CE2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A6778C280D7BE300AD7CE2 /* ViewModel.swift */; };
 		C6A67791280D7CB800AD7CE2 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A67790280D7CB800AD7CE2 /* DataModel.swift */; };
 		C6A67793280D97A700AD7CE2 /* CellForCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A67792280D97A700AD7CE2 /* CellForCharacter.swift */; };
+		C6C975032811E4F50093B56A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C6C975022811E4F50093B56A /* SDWebImage */; };
+		C6C975062811E5240093B56A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C6C975052811E5240093B56A /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6C975032811E4F50093B56A /* SDWebImage in Frameworks */,
+				C6C975062811E5240093B56A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +156,10 @@
 			dependencies = (
 			);
 			name = test1;
+			packageProductDependencies = (
+				C6C975022811E4F50093B56A /* SDWebImage */,
+				C6C975052811E5240093B56A /* SnapKit */,
+			);
 			productName = test1;
 			productReference = C685069627F462EB00427E6A /* test1.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +232,10 @@
 				Base,
 			);
 			mainGroup = C685068D27F462EB00427E6A;
+			packageReferences = (
+				C6C975012811E4F50093B56A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C6C975042811E5240093B56A /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C685069727F462EB00427E6A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -608,6 +620,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C6C975012811E4F50093B56A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C6C975042811E5240093B56A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C6C975022811E4F50093B56A /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6C975012811E4F50093B56A /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C6C975052811E5240093B56A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6C975042811E5240093B56A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C685068E27F462EB00427E6A /* Project object */;
 }

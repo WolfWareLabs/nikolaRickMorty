@@ -34,12 +34,12 @@ class ViewModel{
                 return
             }
             
-            let result: CharacterDataModel?
+            var result: CharacterDataModel?
             do{
                 result = try JSONDecoder().decode(CharacterDataModel.self, from: data)
             }
             catch{
-                print("Nisam ja uspeo \(error.localizedDescription)")
+                print("Nisam ja uspeo \(error)")
             }
             
             guard let jsonData = result else{
