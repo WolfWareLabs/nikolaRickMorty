@@ -27,6 +27,9 @@ class CellForCharacter: UICollectionViewCell{
         myLabel.text = "This is some text"
         //myLabel.backgroundColor = .green
         myLabel.textAlignment = .center
+        myLabel.lineBreakMode = .byWordWrapping
+        myLabel.numberOfLines = 0
+        //myLabel.adjustsFontSizeToFitWidth = true
         return myLabel
     }()
     

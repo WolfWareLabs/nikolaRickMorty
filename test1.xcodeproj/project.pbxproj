@@ -21,6 +21,7 @@
 		C6A67793280D97A700AD7CE2 /* CellForCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A67792280D97A700AD7CE2 /* CellForCharacter.swift */; };
 		C6C975032811E4F50093B56A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C6C975022811E4F50093B56A /* SDWebImage */; };
 		C6C975062811E5240093B56A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C6C975052811E5240093B56A /* SnapKit */; };
+		C6C97508281215090093B56A /* CellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C97507281215090093B56A /* CellViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C6A6778C280D7BE300AD7CE2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C6A67790280D7CB800AD7CE2 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C6A67792280D97A700AD7CE2 /* CellForCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForCharacter.swift; sourceTree = "<group>"; };
+		C6C97507281215090093B56A /* CellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,13 +114,14 @@
 				C685069927F462EB00427E6A /* AppDelegate.swift */,
 				C685069B27F462EB00427E6A /* SceneDelegate.swift */,
 				C685069D27F462EB00427E6A /* ViewController.swift */,
+				C6A6778C280D7BE300AD7CE2 /* ViewModel.swift */,
 				C685069F27F462EB00427E6A /* Main.storyboard */,
 				C68506A227F462EE00427E6A /* Assets.xcassets */,
 				C68506A427F462EE00427E6A /* LaunchScreen.storyboard */,
 				C68506A727F462EE00427E6A /* Info.plist */,
-				C6A6778C280D7BE300AD7CE2 /* ViewModel.swift */,
-				C6A67790280D7CB800AD7CE2 /* DataModel.swift */,
 				C6A67792280D97A700AD7CE2 /* CellForCharacter.swift */,
+				C6C97507281215090093B56A /* CellViewController.swift */,
+				C6A67790280D7CB800AD7CE2 /* DataModel.swift */,
 			);
 			path = test1;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6C97508281215090093B56A /* CellViewController.swift in Sources */,
 				C6A67791280D7CB800AD7CE2 /* DataModel.swift in Sources */,
 				C685069E27F462EB00427E6A /* ViewController.swift in Sources */,
 				C685069A27F462EB00427E6A /* AppDelegate.swift in Sources */,

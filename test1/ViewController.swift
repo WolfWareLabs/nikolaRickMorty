@@ -24,6 +24,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cellViewController = CellViewController(person: viewModel.characters[indexPath.item])
+        cellViewController.title = viewModel.characters[indexPath.item].name
+        //cellViewController.view.backgroundColor = .systemRed
+        navigationController?.pushViewController(cellViewController, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+            let contentHeight = scrollView.contentSize.height
+            if offsetY > contentHeight - scrollView.frame.size.height {
+                //print("this is end, see you in console")
+                viewModel.loadData()
+            }
+    }
+    
     func reload() {
         collectionView.reloadData()
     }
@@ -51,10 +67,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         viewModel.loadData()
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints{
-            make in make.edges.equalToSuperview()
+            make in make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         collectionView.delegate = self
-        
     }
 
 
