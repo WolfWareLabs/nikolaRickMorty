@@ -27,7 +27,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cellViewController = CellViewController(person: viewModel.characters[indexPath.item])
         cellViewController.title = viewModel.characters[indexPath.item].name
-        //cellViewController.view.backgroundColor = .systemRed
         navigationController?.pushViewController(cellViewController, animated: true)
     }
     
@@ -36,11 +35,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let contentHeight = scrollView.contentSize.height
             if offsetY > contentHeight - scrollView.frame.size.height {
                 //print("this is end, see you in console")
+                guard !viewModel.isLoading else {
+                    return
+                }
                 viewModel.loadData()
             }
     }
     
-    func reload() {
+    func reload() { 
         collectionView.reloadData()
     }
     

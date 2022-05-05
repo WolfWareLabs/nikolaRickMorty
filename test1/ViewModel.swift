@@ -18,10 +18,13 @@ class ViewModel{
     var isLoading: Bool = false
     
     func loadData(){
+        isLoading = true
         var url = "https://rickandmortyapi.com/api/character/"
+        
         if let next = info?.next {
             url = next
         }
+        
         guard let url = URL(string: url) else{
             return
         }
@@ -49,9 +52,12 @@ class ViewModel{
             self.characters.append(contentsOf: jsonData.results)
             self.info = jsonData.info
             
+
             DispatchQueue.main.async {
                 self.delegate?.reload()
+                self.isLoading = false
             }
+            
         }
         
         session.resume()

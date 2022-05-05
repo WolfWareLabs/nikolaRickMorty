@@ -28,7 +28,6 @@ class CellViewController: UIViewController{
     
 
     var person: CharacterModel
-    //let tableView = UITableView()
     
     init(person: CharacterModel){
         self.person = person
@@ -39,15 +38,42 @@ class CellViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        //view.addSubview(tableView)
-//      tableView.delegate = self
-//      tableView.dataSource = self
-        makeStackView()
+        //makeStackView()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let scrollView = UIScrollView(frame: view.bounds)
+        scrollView.addSubview(stackView)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        makeStackConstraint()
+        view.addSubview(scrollView)
+    }
+    
+    lazy var stackView: UIStackView = {
+        let tmp = UIStackView(arrangedSubviews: [image, label1, label2, label3, label4, label5, label6, label7])
+        tmp.axis = .vertical
+        tmp.distribution = .fill
+        tmp.spacing = 20
+        return tmp
+    }()
+    
+    
+    func makeStackView(){
+        view.addSubview(stackView)
+        makeStackConstraint()
+    }
+    
+    func makeStackConstraint(){
+        stackView.snp.makeConstraints {
+            make in make.top.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
     
     lazy var image: UIImageView = {
         let temp = UIImageView()
@@ -128,23 +154,6 @@ class CellViewController: UIViewController{
         return tmp
     }()
     
-    lazy var stackView: UIStackView = {
-        let tmp = UIStackView(arrangedSubviews: [image, label1, label2, label3, label4, label5, label6, label7])
-        tmp.axis = .vertical
-        tmp.distribution = .fill
-        tmp.spacing = 20
-        return tmp
-    }()
-    
-    func makeStackView(){
-        view.addSubview(stackView)
-        makeStackConstraint()
-    }
-    
-    func makeStackConstraint(){
-        stackView.snp.makeConstraints {
-            make in make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(50)
-        }
-    }
+  
     
 }
