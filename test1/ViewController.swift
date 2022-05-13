@@ -34,7 +34,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let offsetY = scrollView.contentOffset.y
             let contentHeight = scrollView.contentSize.height
             if offsetY > contentHeight - scrollView.frame.size.height {
-                //print("this is end, see you in console")
                 guard !viewModel.isLoading else {
                     return
                 }
@@ -45,7 +44,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func reload() { 
         collectionView.reloadData()
     }
-    
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -73,7 +71,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         collectionView.delegate = self
     }
-
 
 }
 

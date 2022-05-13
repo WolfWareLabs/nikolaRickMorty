@@ -51,13 +51,11 @@ class ViewModel{
             
             self.characters.append(contentsOf: jsonData.results)
             self.info = jsonData.info
-            
 
             DispatchQueue.main.async {
                 self.delegate?.reload()
                 self.isLoading = false
             }
-            
         }
         
         session.resume()

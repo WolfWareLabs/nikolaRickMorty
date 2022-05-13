@@ -13,9 +13,8 @@ class CellForCharacter: UICollectionViewCell{
         
     static let identifier = "CellForCharacter"
     
-    
     lazy var stackView: UIStackView = {
-        let c = UIStackView(arrangedSubviews: [imageView, label])
+        let c = UIStackView(arrangedSubviews: [imageView, nameLabel])
         c.axis = .vertical
         c.spacing = 5
         c.distribution = .fill
@@ -24,18 +23,16 @@ class CellForCharacter: UICollectionViewCell{
     
     lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(systemName: "house")
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         return image
     }()
     
-    lazy var label: UILabel = {
+    lazy var nameLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.textAlignment = .center
         myLabel.lineBreakMode = .byWordWrapping
         myLabel.numberOfLines = 0
-        //myLabel.adjustsFontSizeToFitWidth = true
         return myLabel
     }()
     
@@ -53,13 +50,13 @@ class CellForCharacter: UICollectionViewCell{
     }
     
     public func configure(image: String, label: String){
-        self.label.text = label
+        self.nameLabel.text = label
         self.imageView.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: label))
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        label.text = nil
+        nameLabel.text = nil
         imageView.image = nil
     }
     
