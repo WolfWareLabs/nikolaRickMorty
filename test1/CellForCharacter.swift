@@ -16,7 +16,6 @@ class CellForCharacter: UICollectionViewCell{
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "house")
-        //image.backgroundColor = .yellow
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         return image
@@ -25,14 +24,14 @@ class CellForCharacter: UICollectionViewCell{
     private let label: UILabel = {
         let myLabel = UILabel()
         myLabel.text = "This is some text"
-        //myLabel.backgroundColor = .green
         myLabel.textAlignment = .center
+        myLabel.lineBreakMode = .byWordWrapping
+        myLabel.numberOfLines = 0
         return myLabel
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //contentView.backgroundColor = .systemRed
         contentView.addSubview(imageView)
         contentView.addSubview(label)
         contentView.clipsToBounds = true
@@ -57,8 +56,6 @@ class CellForCharacter: UICollectionViewCell{
     public func configure(image: String, label: String){
         self.label.text = label
         self.imageView.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: label))
-    
-        //self.imageView.image = UIImage(systemName: "house")
     }
     
     override func prepareForReuse() {
