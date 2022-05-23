@@ -13,17 +13,23 @@ class CellForCharacter: UICollectionViewCell{
         
     static let identifier = "CellForCharacter"
     
-    private let imageView: UIImageView = {
+    lazy var stackView: UIStackView = {
+        let c = UIStackView(arrangedSubviews: [imageView, nameLabel])
+        c.axis = .vertical
+        c.spacing = 5
+        c.distribution = .fill
+        return c
+    }()
+    
+    lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(systemName: "house")
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         return image
     }()
     
-    private let label: UILabel = {
+    lazy var nameLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.text = "This is some text"
         myLabel.textAlignment = .center
         myLabel.lineBreakMode = .byWordWrapping
         myLabel.numberOfLines = 0
@@ -32,35 +38,25 @@ class CellForCharacter: UICollectionViewCell{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(imageView)
-        contentView.addSubview(label)
-        contentView.clipsToBounds = true
+        contentView.addSubview(stackView)
+
+        stackView.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        label.frame = CGRect(x: 5,
-                             y: contentView.frame.size.height-50,
-                             width: contentView.frame.size.width-10,
-                             height: 50)
-        imageView.frame = CGRect(x: 5,
-                             y: 0,
-                             width: contentView.frame.size.width-10,
-                             height: contentView.frame.size.height-50)
-    }
-    
     public func configure(image: String, label: String){
-        self.label.text = label
+        self.nameLabel.text = label
         self.imageView.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: label))
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        label.text = nil
+        nameLabel.text = nil
         imageView.image = nil
     }
     

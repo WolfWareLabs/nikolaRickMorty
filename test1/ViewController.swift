@@ -34,14 +34,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let offsetY = scrollView.contentOffset.y
             let contentHeight = scrollView.contentSize.height
             if offsetY > contentHeight - scrollView.frame.size.height {
+                guard !viewModel.isLoading else {
+                    return
+                }
                 viewModel.loadData()
             }
     }
     
-    func reload() {
+    func reload() { 
         collectionView.reloadData()
     }
-    
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
