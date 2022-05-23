@@ -130,6 +130,16 @@ class CellViewController: UIViewController, UITableViewDelegate, UITableViewData
         c.text = "Status: " + person.status
         return c
     }()
+
+    lazy var genderLabel: NikolaAwesomeLabel = {
+        let c = NikolaAwesomeLabel()
+        if person.gender.isEmpty {
+            c.text = "Gender: unknown"
+            return c
+        }
+        c.text = "Gender: " + person.gender
+        return c
+    }()
     
     lazy var speciesLabel: NikolaAwesomeLabel = {
         let c = NikolaAwesomeLabel()
@@ -148,16 +158,6 @@ class CellViewController: UIViewController, UITableViewDelegate, UITableViewData
             return c
         }
         c.text = "Type: " + person.type
-        return c
-    }()
-    
-    lazy var genderLabel: NikolaAwesomeLabel = {
-        let c = NikolaAwesomeLabel()
-        if person.gender.isEmpty {
-            c.text = "Gender: unknown"
-            return c
-        }
-        c.text = "Gender: " + person.gender
         return c
     }()
     
